@@ -14,6 +14,13 @@
 		415597DD2BE454010043D197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415597DC2BE454010043D197 /* Assets.xcassets */; };
 		415597E02BE454010043D197 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 415597DF2BE454010043D197 /* Base */; };
 		415597EB2BE454010043D197 /* CollegeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415597EA2BE454010043D197 /* CollegeListTests.swift */; };
+		4155980A2BE455750043D197 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598032BE455750043D197 /* Config.swift */; };
+		4155980B2BE455750043D197 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598042BE455750043D197 /* HTTPMethod.swift */; };
+		4155980C2BE455750043D197 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598052BE455750043D197 /* NetworkError.swift */; };
+		4155980D2BE455750043D197 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598062BE455750043D197 /* NetworkService.swift */; };
+		4155980E2BE455750043D197 /* CollegesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598072BE455750043D197 /* CollegesRouter.swift */; };
+		415598112BE458E50043D197 /* CollegeListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598102BE458E50043D197 /* CollegeListService.swift */; };
+		415598152BE45A080043D197 /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598142BE45A080043D197 /* College.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,13 @@
 		415597E12BE454010043D197 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		415597E62BE454010043D197 /* CollegeListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollegeListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		415597EA2BE454010043D197 /* CollegeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeListTests.swift; sourceTree = "<group>"; };
+		415598032BE455750043D197 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		415598042BE455750043D197 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		415598052BE455750043D197 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		415598062BE455750043D197 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		415598072BE455750043D197 /* CollegesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollegesRouter.swift; sourceTree = "<group>"; };
+		415598102BE458E50043D197 /* CollegeListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeListService.swift; sourceTree = "<group>"; };
+		415598142BE45A080043D197 /* College.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = College.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,13 +92,17 @@
 		415597D22BE454010043D197 /* CollegeList */ = {
 			isa = PBXGroup;
 			children = (
+				415598132BE459590043D197 /* Models */,
 				415597D32BE454010043D197 /* AppDelegate.swift */,
 				415597D52BE454010043D197 /* SceneDelegate.swift */,
+				415598122BE4593C0043D197 /* Scenes */,
 				415597D72BE454010043D197 /* ViewController.swift */,
 				415597D92BE454010043D197 /* Main.storyboard */,
+				415598092BE455750043D197 /* Network */,
 				415597DC2BE454010043D197 /* Assets.xcassets */,
 				415597DE2BE454010043D197 /* LaunchScreen.storyboard */,
 				415597E12BE454010043D197 /* Info.plist */,
+				415598102BE458E50043D197 /* CollegeListService.swift */,
 			);
 			path = CollegeList;
 			sourceTree = "<group>";
@@ -95,6 +113,33 @@
 				415597EA2BE454010043D197 /* CollegeListTests.swift */,
 			);
 			path = CollegeListTests;
+			sourceTree = "<group>";
+		};
+		415598092BE455750043D197 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				415598032BE455750043D197 /* Config.swift */,
+				415598042BE455750043D197 /* HTTPMethod.swift */,
+				415598052BE455750043D197 /* NetworkError.swift */,
+				415598072BE455750043D197 /* CollegesRouter.swift */,
+				415598062BE455750043D197 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		415598122BE4593C0043D197 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		415598132BE459590043D197 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				415598142BE45A080043D197 /* College.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +244,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				415597D82BE454010043D197 /* ViewController.swift in Sources */,
+				4155980A2BE455750043D197 /* Config.swift in Sources */,
 				415597D42BE454010043D197 /* AppDelegate.swift in Sources */,
+				4155980C2BE455750043D197 /* NetworkError.swift in Sources */,
+				415598112BE458E50043D197 /* CollegeListService.swift in Sources */,
+				4155980E2BE455750043D197 /* CollegesRouter.swift in Sources */,
+				4155980B2BE455750043D197 /* HTTPMethod.swift in Sources */,
 				415597D62BE454010043D197 /* SceneDelegate.swift in Sources */,
+				4155980D2BE455750043D197 /* NetworkService.swift in Sources */,
+				415598152BE45A080043D197 /* College.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

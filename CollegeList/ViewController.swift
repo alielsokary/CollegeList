@@ -11,7 +11,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let service = ProductServiceImpl()
+        
+        service.getCollegeList { result in
+            switch result {
+            case .success(let collegeList):
+                collegeList.map { c in
+                    print(c.name)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
 
 
