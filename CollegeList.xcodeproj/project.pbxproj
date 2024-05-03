@@ -28,6 +28,10 @@
 		415598222BE464810043D197 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598212BE464810043D197 /* UIView+Extension.swift */; };
 		415598272BE465F80043D197 /* CollegeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598262BE465F80043D197 /* CollegeDetailsViewController.swift */; };
 		4155982A2BE4661E0043D197 /* CollegeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598292BE4661E0043D197 /* CollegeDetailsViewModel.swift */; };
+		415598312BE471430043D197 /* CollegeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598302BE471430043D197 /* CollegeObject.swift */; };
+		415598342BE4717E0043D197 /* CollegeStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598332BE4717E0043D197 /* CollegeStorageService.swift */; };
+		415598372BE473C00043D197 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 415598362BE473C00043D197 /* RealmSwift */; };
+		4155983A2BE47A400043D197 /* CollegeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598392BE47A400043D197 /* CollegeRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,9 @@
 		415598212BE464810043D197 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		415598262BE465F80043D197 /* CollegeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDetailsViewController.swift; sourceTree = "<group>"; };
 		415598292BE4661E0043D197 /* CollegeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDetailsViewModel.swift; sourceTree = "<group>"; };
+		415598302BE471430043D197 /* CollegeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeObject.swift; sourceTree = "<group>"; };
+		415598332BE4717E0043D197 /* CollegeStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeStorageService.swift; sourceTree = "<group>"; };
+		415598392BE47A400043D197 /* CollegeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415598372BE473C00043D197 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +119,10 @@
 				415597D32BE454010043D197 /* AppDelegate.swift */,
 				415597D52BE454010043D197 /* SceneDelegate.swift */,
 				415598122BE4593C0043D197 /* Scenes */,
-				415597D92BE454010043D197 /* Main.storyboard */,
+				415598322BE471630043D197 /* Storage */,
+				415598382BE47A090043D197 /* Repository */,
 				415598092BE455750043D197 /* Network */,
+				415597D92BE454010043D197 /* Main.storyboard */,
 				415597DC2BE454010043D197 /* Assets.xcassets */,
 				415597DE2BE454010043D197 /* LaunchScreen.storyboard */,
 				415597E12BE454010043D197 /* Info.plist */,
@@ -154,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				415598142BE45A080043D197 /* College.swift */,
+				415598302BE471430043D197 /* CollegeObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +230,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		415598322BE471630043D197 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				415598332BE4717E0043D197 /* CollegeStorageService.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		415598382BE47A090043D197 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				415598392BE47A400043D197 /* CollegeRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,6 +262,9 @@
 			dependencies = (
 			);
 			name = CollegeList;
+			packageProductDependencies = (
+				415598362BE473C00043D197 /* RealmSwift */,
+			);
 			productName = CollegeList;
 			productReference = 415597D02BE454010043D197 /* CollegeList.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +315,9 @@
 				Base,
 			);
 			mainGroup = 415597C72BE454000043D197;
+			packageReferences = (
+				415598352BE473C00043D197 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 415597D12BE454010043D197 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -329,6 +362,8 @@
 				4155982A2BE4661E0043D197 /* CollegeDetailsViewModel.swift in Sources */,
 				4155980C2BE455750043D197 /* NetworkError.swift in Sources */,
 				415598112BE458E50043D197 /* CollegeListService.swift in Sources */,
+				415598312BE471430043D197 /* CollegeObject.swift in Sources */,
+				4155983A2BE47A400043D197 /* CollegeRepository.swift in Sources */,
 				4155980E2BE455750043D197 /* CollegesRouter.swift in Sources */,
 				415598222BE464810043D197 /* UIView+Extension.swift in Sources */,
 				4155980B2BE455750043D197 /* HTTPMethod.swift in Sources */,
@@ -337,6 +372,7 @@
 				4155980D2BE455750043D197 /* NetworkService.swift in Sources */,
 				415598152BE45A080043D197 /* College.swift in Sources */,
 				415598272BE465F80043D197 /* CollegeDetailsViewController.swift in Sources */,
+				415598342BE4717E0043D197 /* CollegeStorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +654,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		415598352BE473C00043D197 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		415598362BE473C00043D197 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 415598352BE473C00043D197 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 415597C82BE454000043D197 /* Project object */;
 }
