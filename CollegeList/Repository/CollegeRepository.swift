@@ -15,7 +15,7 @@ class CollegeRepositoryImpl: CollegeRepository {
     private let apiService: CollegeListService
     private let storageService: CollegeStorageService
 
-    init(apiService: CollegeListService = CollegeListServiceImpl(), storageService: CollegeStorageService = CollegeStorageService()) {
+    init(apiService: CollegeListService, storageService: CollegeStorageService) {
         self.apiService = apiService
         self.storageService = storageService
     }

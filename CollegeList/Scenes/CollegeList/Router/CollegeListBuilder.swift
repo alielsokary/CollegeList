@@ -11,7 +11,9 @@ final class CollegeListBuilder {
     
     static func build() -> UIViewController {
         let router = CollegeListRouterImpl()
-        let repo = CollegeRepositoryImpl()
+        let apiService = CollegeListServiceImpl()
+        let storageService = CollegeStorageServiceImpl()
+        let repo = CollegeRepositoryImpl(apiService: apiService, storageService: storageService)
         let interactor = CollegeListInteractor(repository: repo)
         let presenter = CollegeListPresenterImpl(router: router, interactor: interactor)
         

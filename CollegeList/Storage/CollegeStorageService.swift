@@ -7,7 +7,12 @@
 
 import RealmSwift
 
-class CollegeStorageService {
+protocol CollegeStorageService {
+    func save(college: CollegeViewModel)
+    func fetchColleges() -> [CollegeViewModel]
+}
+
+class CollegeStorageServiceImpl: CollegeStorageService {
     private let realm: Realm
 
     init(realm: Realm = try! Realm()) {
