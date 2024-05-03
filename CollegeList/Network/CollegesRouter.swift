@@ -37,7 +37,7 @@ enum CollegesRouter {
     // MARK: - Methods
     func asURLRequest() throws -> URLRequest {
         let endpointPath: String = "\(Config.baseURL)\(path)"
-        var components = URLComponents(string: endpointPath)
+        let components = URLComponents(string: endpointPath)
         var urlRequest = URLRequest(url: (components?.url)!)
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
