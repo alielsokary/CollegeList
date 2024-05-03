@@ -19,15 +19,15 @@ class NetworkService: NetworkServiceProtocol {
             let urlRequest = try route.asURLRequest()
             URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
                 DispatchQueue.main.async {
-                    if let data = data, let utf8Text = String(data: data, encoding: .utf8) {
-                    }
                     if let httpResponse = response as? HTTPURLResponse,
                        !(200 ... 299).contains(httpResponse.statusCode) {
-                    let txtError = self.handleError(forCode: httpResponse.statusCode)
+                        _ = self.handleError(forCode: httpResponse.statusCode)
                         return
                     }
                     guard let data = data else {
-                        completion(.failure(.parsingError))
+                        if let nsError = error as? NSError, nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorNotConnectedToInternet {
+                            completion(.failure(.noInternet))
+                        }
                         return
                     }
                     do {
