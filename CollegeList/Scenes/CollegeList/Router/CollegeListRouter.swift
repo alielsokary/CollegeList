@@ -22,7 +22,7 @@ final class CollegeListRouterImpl: CollegeListRouter {
     }
 
     func navigateToCollegeDetails(with viewModel: CollegeViewModel) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "CollegeDetails", bundle: nil)
         let interactor = CollegeDetailsInteractor(viewModel: viewModel)
         let presenter = CollegeDetailsPresenterImpl(interactor: interactor)
         let vc = storyboard.instantiateViewController(identifier: "CollegeDetailsViewController") { coder in
