@@ -47,7 +47,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aO5-Rr-p6f">
-                                <rect key="frame" x="16" y="119" width="361" height="125.66666666666669"/>
+                                <rect key="frame" x="16" y="125" width="361" height="125.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGj-BR-Afn">
                                         <rect key="frame" x="0.0" y="0.0" width="43.333333333333336" height="20.333333333333332"/>
@@ -96,13 +96,27 @@
                                     <constraint firstAttribute="trailing" secondItem="OFk-Nr-DBx" secondAttribute="trailing" id="8Fp-Cr-j3R"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MJ-vf-NPD">
+                                <rect key="frame" x="330" y="59" width="47" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CDp-29-IB3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="🔄"/>
+                                <connections>
+                                    <action selector="refreshButton:" destination="xiZ-8b-3ga" eventType="touchUpInside" id="uAX-Ao-t6z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G3l-3g-BFh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aO5-Rr-p6f" firstAttribute="top" secondItem="G3l-3g-BFh" secondAttribute="top" constant="16" id="8e1-oh-aMN"/>
+                            <constraint firstItem="6MJ-vf-NPD" firstAttribute="leading" secondItem="G3l-3g-BFh" secondAttribute="leading" constant="330" id="LwQ-dZ-Zam"/>
                             <constraint firstItem="aO5-Rr-p6f" firstAttribute="leading" secondItem="G3l-3g-BFh" secondAttribute="leading" constant="16" id="gGE-eD-f1a"/>
+                            <constraint firstItem="aO5-Rr-p6f" firstAttribute="top" secondItem="6MJ-vf-NPD" secondAttribute="bottom" constant="16" id="iJI-4z-OBc"/>
                             <constraint firstItem="G3l-3g-BFh" firstAttribute="trailing" secondItem="aO5-Rr-p6f" secondAttribute="trailing" constant="16" id="pHO-7H-gfS"/>
+                            <constraint firstItem="G3l-3g-BFh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6MJ-vf-NPD" secondAttribute="trailing" id="rs5-HS-FsV"/>
+                            <constraint firstItem="6MJ-vf-NPD" firstAttribute="top" secondItem="G3l-3g-BFh" secondAttribute="top" id="ze3-v5-vNH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hS4-qu-zlL"/>
@@ -116,25 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXs-jD-QPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="4"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4n2-nF-LLg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MMF-RC-H48" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H2B-do-5Zf">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xiZ-8b-3ga" kind="relationship" relationship="rootViewController" id="8QK-S5-wZt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B6Q-92-gbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="759.5419847328244" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="795" y="4"/>
         </scene>
     </scenes>
     <resources>

@@ -21,4 +21,12 @@ class CollegeViewModel {
         self.countryCode = college.alphaTwoCode ?? ""
         self.webPage = college.webPages?.first ?? ""
     }
+    
+    init(collegeObject: CollegeObject) {
+        self.name = collegeObject.name
+        self.country = collegeObject.country
+        self.state = collegeObject.state
+        self.countryCode = collegeObject.countryCode
+        self.webPage = collegeObject.webPage
+    }
 }

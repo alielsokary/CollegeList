@@ -13,11 +13,14 @@ enum NetworkError: Error {
     case parsingError
     case unknownError
     case notFound
+    case noInternet
 }
 
 extension NetworkError: LocalizedError {
     var errorDescription: String? {
         switch self {
+        case .noInternet:
+            return "The Internet connection appears to be offline."
         case .internalServerError:
             return "Internal Server error"
         case .clientErrors:

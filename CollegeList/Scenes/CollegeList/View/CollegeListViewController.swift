@@ -9,18 +9,32 @@ import UIKit
 
 protocol CollegeListViewControllerDisplayLogic: AnyObject {
     func reloadData()
+    func showAlert(text: String)
 }
 
 class CollegeListViewController: UIViewController {
-    
+    // MARK: Properties
     @IBOutlet private(set) weak var tableView: UITableView!
-
+    
     lazy var viewModel: CollegeListViewModelLogic = {
         let viewModel = CollegeListViewModel()
         viewModel.delegate = self
         return viewModel
-    }()
+    }()  
+}
 
+// MARK: - Configurations
+private extension CollegeListViewController {
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib.init(nibName: CollegeTableViewCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: CollegeTableViewCell.identifier)
+    }
+}
+
+// MARK: - Life Cycle
+extension CollegeListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -30,19 +44,19 @@ class CollegeListViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.getCollegeList()
     }
-    
-    func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib.init(nibName: CollegeTableViewCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: CollegeTableViewCell.identifier)
-    }
-
 }
 
+// MARK: - CollegeListViewControllerDisplayLogic
 extension CollegeListViewController: CollegeListViewControllerDisplayLogic {
     func reloadData() {
         tableView.reloadData()
+    }
+    
+    func showAlert(text: String) {
+        let alertController = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
 }
 
@@ -58,7 +72,7 @@ extension CollegeListViewController: UITableViewDataSource {
         }
         
         cell.viewModel = viewModel.colleges[indexPath.row]
-
+        
         return cell
     }
 }
