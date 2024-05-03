@@ -13,30 +13,40 @@ protocol CollegeListViewControllerDisplayLogic: AnyObject {
 }
 
 class CollegeListViewController: UIViewController {
-    
+    // MARK: Properties
     @IBOutlet private(set) weak var tableView: UITableView!
     
     lazy var viewModel: CollegeListViewModelLogic = {
         let viewModel = CollegeListViewModel()
         viewModel.delegate = self
         return viewModel
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupTableView()
-        viewModel.getCollegeList()
-    }
-    
+    }()  
+}
+
+// MARK: - Configurations
+private extension CollegeListViewController {
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib.init(nibName: CollegeTableViewCell.identifier, bundle: nil),
                            forCellReuseIdentifier: CollegeTableViewCell.identifier)
     }
-    
 }
 
+// MARK: - Life Cycle
+extension CollegeListViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getCollegeList()
+    }
+}
+
+// MARK: - CollegeListViewControllerDisplayLogic
 extension CollegeListViewController: CollegeListViewControllerDisplayLogic {
     func reloadData() {
         tableView.reloadData()
@@ -45,7 +55,7 @@ extension CollegeListViewController: CollegeListViewControllerDisplayLogic {
     func showAlert(text: String) {
         let alertController = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(okAction)        
+        alertController.addAction(okAction)
         present(alertController, animated: true)
     }
 }
