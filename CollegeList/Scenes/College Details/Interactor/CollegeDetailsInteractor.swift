@@ -7,7 +7,16 @@
 
 import Foundation
 
-class CollegeDetailsInteractor {
+
+protocol CollegeDetailsInteractorLogic {
+    var viewModel: CollegeViewModel { get set }
+}
+
+class CollegeDetailsInteractor: CollegeDetailsInteractorLogic {
+        
+    var viewModel: CollegeViewModel
     
-    var college: CollegeViewModel!
+    init(viewModel: CollegeViewModel) {
+        self.viewModel = viewModel
+    }
 }

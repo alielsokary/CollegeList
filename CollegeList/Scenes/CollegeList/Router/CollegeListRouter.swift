@@ -23,9 +23,12 @@ final class CollegeListRouterImpl: CollegeListRouter {
 
     func navigateToCollegeDetails(with viewModel: CollegeViewModel) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let collegeDetailsVC = storyboard.instantiateViewController(withIdentifier: "CollegeDetailsViewController") as? CollegeDetailsViewController {
-            collegeDetailsVC.interactor.college = viewModel
-            viewController?.present(collegeDetailsVC, animated: true)
+        let interactor = CollegeDetailsInteractor(viewModel: viewModel)
+        let presenter = CollegeDetailsPresenterImpl(interactor: interactor)
+        let vc = storyboard.instantiateViewController(identifier: "CollegeDetailsViewController") { coder in
+            return CollegeDetailsViewController(coder: coder, presenter: presenter)
         }
+        
+        viewController?.present(vc, animated: true)
     }
 }

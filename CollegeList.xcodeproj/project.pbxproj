@@ -35,6 +35,7 @@
 		4155983D2BE50CCA0043D197 /* CollegeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155983C2BE50CCA0043D197 /* CollegeListPresenter.swift */; };
 		415598402BE527190043D197 /* CollegeListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155983F2BE527190043D197 /* CollegeListRouter.swift */; };
 		415598422BE52BD80043D197 /* CollegeListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598412BE52BD80043D197 /* CollegeListBuilder.swift */; };
+		415598452BE538B30043D197 /* CollegeDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598442BE538B30043D197 /* CollegeDetailsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		4155983C2BE50CCA0043D197 /* CollegeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeListPresenter.swift; sourceTree = "<group>"; };
 		4155983F2BE527190043D197 /* CollegeListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeListRouter.swift; sourceTree = "<group>"; };
 		415598412BE52BD80043D197 /* CollegeListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeListBuilder.swift; sourceTree = "<group>"; };
+		415598442BE538B30043D197 /* CollegeDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDetailsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		415598242BE465D20043D197 /* College Details */ = {
 			isa = PBXGroup;
 			children = (
+				415598432BE538A60043D197 /* Presenter */,
 				415598282BE466030043D197 /* Interactor */,
 				415598252BE465E00043D197 /* View */,
 			);
@@ -269,6 +272,14 @@
 				415598412BE52BD80043D197 /* CollegeListBuilder.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		415598432BE538A60043D197 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				415598442BE538B30043D197 /* CollegeDetailsPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +397,7 @@
 				4155983D2BE50CCA0043D197 /* CollegeListPresenter.swift in Sources */,
 				415597D42BE454010043D197 /* AppDelegate.swift in Sources */,
 				415598402BE527190043D197 /* CollegeListRouter.swift in Sources */,
+				415598452BE538B30043D197 /* CollegeDetailsPresenter.swift in Sources */,
 				4155982A2BE4661E0043D197 /* CollegeDetailsInteractor.swift in Sources */,
 				4155980C2BE455750043D197 /* NetworkError.swift in Sources */,
 				415598422BE52BD80043D197 /* CollegeListBuilder.swift in Sources */,
