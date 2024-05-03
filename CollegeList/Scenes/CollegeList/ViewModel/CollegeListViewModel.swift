@@ -8,12 +8,12 @@
 import Foundation
 
 protocol CollegeListViewModelLogic {
-    var collegeListViewModels: [CollegeViewModel] { get set }
+    var colleges: [CollegeViewModel] { get set }
     func getCollegeList()
 }
 
 class CollegeListViewModel: CollegeListViewModelLogic {
-    var collegeListViewModels: [CollegeViewModel] = []
+    var colleges: [CollegeViewModel] = []
     
     weak var delegate: CollegeListViewControllerDisplayLogic?
 
@@ -30,7 +30,7 @@ class CollegeListViewModel: CollegeListViewModelLogic {
             case .success(let collegeList):
                 _ = collegeList.map { college in
                     let collegeVM = CollegeViewModel(college: college)
-                    self.collegeListViewModels.append(collegeVM)
+                    self.colleges.append(collegeVM)
                     self.delegate?.reloadData()
                 }
             case .failure(let error):

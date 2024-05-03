@@ -26,6 +26,8 @@
 		4155981D2BE45D410043D197 /* CollegeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155981C2BE45D410043D197 /* CollegeListViewModel.swift */; };
 		4155981F2BE45F890043D197 /* CollegeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155981E2BE45F890043D197 /* CollegeViewModel.swift */; };
 		415598222BE464810043D197 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598212BE464810043D197 /* UIView+Extension.swift */; };
+		415598272BE465F80043D197 /* CollegeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598262BE465F80043D197 /* CollegeDetailsViewController.swift */; };
+		4155982A2BE4661E0043D197 /* CollegeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415598292BE4661E0043D197 /* CollegeDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		4155981C2BE45D410043D197 /* CollegeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeListViewModel.swift; sourceTree = "<group>"; };
 		4155981E2BE45F890043D197 /* CollegeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeViewModel.swift; sourceTree = "<group>"; };
 		415598212BE464810043D197 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		415598262BE465F80043D197 /* CollegeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDetailsViewController.swift; sourceTree = "<group>"; };
+		415598292BE4661E0043D197 /* CollegeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +144,8 @@
 		415598122BE4593C0043D197 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4155981B2BE45D2C0043D197 /* ViewModel */,
-				415598162BE45BAC0043D197 /* View */,
+				415598232BE465AB0043D197 /* CollegeList */,
+				415598242BE465D20043D197 /* College Details */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -179,6 +183,40 @@
 				415598212BE464810043D197 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		415598232BE465AB0043D197 /* CollegeList */ = {
+			isa = PBXGroup;
+			children = (
+				4155981B2BE45D2C0043D197 /* ViewModel */,
+				415598162BE45BAC0043D197 /* View */,
+			);
+			path = CollegeList;
+			sourceTree = "<group>";
+		};
+		415598242BE465D20043D197 /* College Details */ = {
+			isa = PBXGroup;
+			children = (
+				415598282BE466030043D197 /* ViewModel */,
+				415598252BE465E00043D197 /* View */,
+			);
+			path = "College Details";
+			sourceTree = "<group>";
+		};
+		415598252BE465E00043D197 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				415598262BE465F80043D197 /* CollegeDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		415598282BE466030043D197 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				415598292BE4661E0043D197 /* CollegeDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +326,7 @@
 				4155980A2BE455750043D197 /* Config.swift in Sources */,
 				415598192BE45BCA0043D197 /* CollegeTableViewCell.swift in Sources */,
 				415597D42BE454010043D197 /* AppDelegate.swift in Sources */,
+				4155982A2BE4661E0043D197 /* CollegeDetailsViewModel.swift in Sources */,
 				4155980C2BE455750043D197 /* NetworkError.swift in Sources */,
 				415598112BE458E50043D197 /* CollegeListService.swift in Sources */,
 				4155980E2BE455750043D197 /* CollegesRouter.swift in Sources */,
@@ -297,6 +336,7 @@
 				415597D62BE454010043D197 /* SceneDelegate.swift in Sources */,
 				4155980D2BE455750043D197 /* NetworkService.swift in Sources */,
 				415598152BE45A080043D197 /* College.swift in Sources */,
+				415598272BE465F80043D197 /* CollegeDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
