@@ -1,5 +1,5 @@
 //
-//  CollegeListViewModel.swift
+//  CollegeListInteractor.swift
 //  CollegeList
 //
 //  Created by Ali Elsokary on 03/05/2024.
@@ -7,19 +7,25 @@
 
 import Foundation
 
-protocol CollegeListViewModelLogic {
+protocol CollegeListInteractorLogic {
     var colleges: [CollegeViewModel] { get set }
     func getCollegeList()
 }
 
-class CollegeListViewModel: CollegeListViewModelLogic {
-    var colleges: [CollegeViewModel] = []
+protocol CollegeListInteractorOutput: AnyObject {
+    func reloadData()
+    func showAlert(text: String)
+}
+
+class CollegeListInteractor: CollegeListInteractorLogic {
     
-    weak var delegate: CollegeListViewControllerDisplayLogic?
+    weak var output: CollegeListInteractorOutput?
+    
+    var colleges: [CollegeViewModel] = []
     
     private let repository: CollegeRepository
     
-    init(repository: CollegeRepository = CollegeRepositoryImpl()) {
+    init(repository: CollegeRepository) {
         self.repository = repository
     }
     
@@ -29,10 +35,10 @@ class CollegeListViewModel: CollegeListViewModelLogic {
             switch result {
             case .success(let colleges):
                 self.colleges = colleges
-                self.delegate?.reloadData()
+                self.output?.reloadData()
             case .failure(let error):
                 print(error)
-                self.delegate?.showAlert(text: error.localizedDescription)
+                self.output?.showAlert(text: error.localizedDescription)
             }
         }
     }

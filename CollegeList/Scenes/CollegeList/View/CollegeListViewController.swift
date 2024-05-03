@@ -7,20 +7,25 @@
 
 import UIKit
 
-protocol CollegeListViewControllerDisplayLogic: AnyObject {
+protocol CollegeListView: AnyObject {
     func reloadData()
     func showAlert(text: String)
 }
 
-class CollegeListViewController: UIViewController {
+final class CollegeListViewController: UIViewController {
     // MARK: Properties
     @IBOutlet private(set) weak var tableView: UITableView!
     
-    lazy var viewModel: CollegeListViewModelLogic = {
-        let viewModel = CollegeListViewModel()
-        viewModel.delegate = self
-        return viewModel
-    }()  
+    private let presenter: CollegeListPresenter
+    
+    required init?(coder: NSCoder, presenter: CollegeListPresenter) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - Configurations
@@ -37,17 +42,18 @@ private extension CollegeListViewController {
 extension CollegeListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad(view: self)
         setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getCollegeList()
+        presenter.viewDidLoad(view: self)
     }
 }
 
-// MARK: - CollegeListViewControllerDisplayLogic
-extension CollegeListViewController: CollegeListViewControllerDisplayLogic {
+// MARK: - CollegeListView
+extension CollegeListViewController: CollegeListView {
     func reloadData() {
         tableView.reloadData()
     }
@@ -63,7 +69,7 @@ extension CollegeListViewController: CollegeListViewControllerDisplayLogic {
 // MARK: - TableView DataSource
 extension CollegeListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.colleges.count
+        return presenter.numberOfColleges()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CollegeTableViewCell", for: indexPath)
@@ -71,7 +77,7 @@ extension CollegeListViewController: UITableViewDataSource {
             fatalError("Cell not exists")
         }
         
-        cell.viewModel = viewModel.colleges[indexPath.row]
+        cell.viewModel = presenter.collegeViewModel(at: indexPath.row)
         
         return cell
     }
@@ -80,12 +86,6 @@ extension CollegeListViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 extension CollegeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyBoard.instantiateViewController(withIdentifier: "CollegeDetailsViewController") as? CollegeDetailsViewController else { return }
-        vc.viewModel.college = viewModel.colleges[indexPath.row]
-        self.present(vc, animated: true)
+        presenter.didSelectCollege(at: indexPath.row)
     }
 }
-
-
-
