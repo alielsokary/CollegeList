@@ -9,6 +9,7 @@ import Foundation
 
 protocol CollegeDetailsPresenter {
     func viewDidLoad(view: CollegeDetailsView)
+    func startDataRefresh()
 }
 
 class CollegeDetailsPresenterImpl: CollegeDetailsPresenter {
@@ -23,5 +24,9 @@ class CollegeDetailsPresenterImpl: CollegeDetailsPresenter {
     func viewDidLoad(view: CollegeDetailsView) {
         self.view = view
         view.displayData(viewModel: interactor.viewModel)
+    }
+    
+    func startDataRefresh() {
+        NotificationCenter.default.post(name: .collegeDataRefreshed, object: nil)
     }
 }

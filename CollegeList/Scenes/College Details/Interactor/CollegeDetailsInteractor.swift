@@ -20,3 +20,8 @@ class CollegeDetailsInteractor: CollegeDetailsInteractorLogic {
         self.viewModel = viewModel
     }
 }
+
+
+extension Notification.Name {
+    static let collegeDataRefreshed = Notification.Name("collegeDataRefreshed")
+}

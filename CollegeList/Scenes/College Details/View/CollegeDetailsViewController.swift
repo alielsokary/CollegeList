@@ -56,5 +56,6 @@ extension CollegeDetailsViewController: CollegeDetailsView {
 extension CollegeDetailsViewController {
     @IBAction func refreshButton(_ sender: UIButton) {
         self.dismiss(animated: true)
+        presenter.startDataRefresh()
     }
 }

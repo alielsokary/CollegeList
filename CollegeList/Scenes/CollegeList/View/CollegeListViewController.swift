@@ -26,6 +26,10 @@ final class CollegeListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    deinit {
+        presenter.removeNotificationObserver()
+    }
 }
 
 // MARK: - Configurations
@@ -44,11 +48,7 @@ extension CollegeListViewController {
         super.viewDidLoad()
         presenter.viewDidLoad(view: self)
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter.viewDidLoad(view: self)
+        presenter.observeDataRefreshNotification()
     }
 }
 

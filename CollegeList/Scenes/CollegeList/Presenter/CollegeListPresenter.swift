@@ -12,6 +12,9 @@ protocol CollegeListPresenter {
     func numberOfColleges() -> Int
     func collegeViewModel(at index: Int) -> CollegeViewModel
     func didSelectCollege(at index: Int)
+    func observeDataRefreshNotification()
+    func removeNotificationObserver()
+    
 }
 
 class CollegeListPresenterImpl: CollegeListPresenter {
@@ -42,6 +45,17 @@ class CollegeListPresenterImpl: CollegeListPresenter {
     func didSelectCollege(at index: Int) {
         let selectedCollege = interactor.colleges[index]
         router.navigateToCollegeDetails(with: selectedCollege)
+    }
+    
+    func observeDataRefreshNotification() {
+        NotificationCenter.default.addObserver(forName: .collegeDataRefreshed, object: nil, queue: nil) { [weak self] _ in
+            guard let self = self else { return }
+            self.interactor.getCollegeList()
+        }
+    }
+    
+    func removeNotificationObserver() {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

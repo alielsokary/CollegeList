@@ -28,7 +28,7 @@ final class CollegeListRouterImpl: CollegeListRouter {
         let vc = storyboard.instantiateViewController(identifier: "CollegeDetailsViewController") { coder in
             return CollegeDetailsViewController(coder: coder, presenter: presenter)
         }
-        
+        vc.modalPresentationStyle = .fullScreen
         viewController?.present(vc, animated: true)
     }
 }
