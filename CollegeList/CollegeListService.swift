@@ -11,7 +11,7 @@ protocol CollegeListService {
     func getCollegeList(completion: @escaping (Result<[College], NetworkError>) -> Void)
 }
 
-class ProductServiceImpl: CollegeListService {
+class CollegeListServiceImpl: CollegeListService {
     private let service = NetworkService()
 
     func getCollegeList(completion: @escaping (Result<[College], NetworkError>) -> Void) {
