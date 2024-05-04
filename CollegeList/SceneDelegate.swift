@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CollegeListiOS
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
