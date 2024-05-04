@@ -20,8 +20,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "CollegeListiOS",
-            dependencies: [.product(name: "CollegeListCore", package: "CollegeListCore")],
-            resources: [.copy("Resources")]),
+            dependencies: [.product(name: "CollegeListCore", package: "CollegeListCore")]),
         .testTarget(
             name: "CollegeListiOSTests",
             dependencies: ["CollegeListiOS"]),
