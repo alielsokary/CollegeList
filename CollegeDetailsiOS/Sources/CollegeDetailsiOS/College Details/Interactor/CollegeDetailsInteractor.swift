@@ -8,15 +8,15 @@
 import Foundation
 import CollegeListCore
 
-protocol CollegeDetailsInteractorLogic {
+public protocol CollegeDetailsInteractorLogic {
     var viewModel: CollegeViewModel { get set }
 }
 
-class CollegeDetailsInteractor: CollegeDetailsInteractorLogic {
+public class CollegeDetailsInteractor: CollegeDetailsInteractorLogic {
         
-    var viewModel: CollegeViewModel
+    public var viewModel: CollegeViewModel
     
-    init(viewModel: CollegeViewModel) {
+    public init(viewModel: CollegeViewModel) {
         self.viewModel = viewModel
     }
 }

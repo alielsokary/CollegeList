@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414AA4E82BE5DB5B001FC762 /* CollegeDetailsiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 414AA4E72BE5DB5B001FC762 /* CollegeDetailsiOS */; };
 		415597D42BE454010043D197 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415597D32BE454010043D197 /* AppDelegate.swift */; };
 		415597D62BE454010043D197 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415597D52BE454010043D197 /* SceneDelegate.swift */; };
 		415597DD2BE454010043D197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415597DC2BE454010043D197 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 			files = (
 				416C574D2BE5CD930033BE3E /* CollegeListiOS in Frameworks */,
 				4197054F2BE5CA170016DBB6 /* CollegeListCore in Frameworks */,
+				414AA4E82BE5DB5B001FC762 /* CollegeDetailsiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +116,7 @@
 			packageProductDependencies = (
 				4197054E2BE5CA170016DBB6 /* CollegeListCore */,
 				416C574C2BE5CD930033BE3E /* CollegeListiOS */,
+				414AA4E72BE5DB5B001FC762 /* CollegeDetailsiOS */,
 			);
 			productName = CollegeList;
 			productReference = 415597D02BE454010043D197 /* CollegeList.app */;
@@ -168,6 +171,7 @@
 			packageReferences = (
 				4197054D2BE5CA170016DBB6 /* XCLocalSwiftPackageReference "CollegeListCore" */,
 				416C574B2BE5CD930033BE3E /* XCLocalSwiftPackageReference "CollegeListiOS" */,
+				414AA4E62BE5DB5B001FC762 /* XCLocalSwiftPackageReference "CollegeDetailsiOS" */,
 			);
 			productRefGroup = 415597D12BE454010043D197 /* Products */;
 			projectDirPath = "";
@@ -480,6 +484,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		414AA4E62BE5DB5B001FC762 /* XCLocalSwiftPackageReference "CollegeDetailsiOS" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CollegeDetailsiOS;
+		};
 		416C574B2BE5CD930033BE3E /* XCLocalSwiftPackageReference "CollegeListiOS" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = CollegeListiOS;
@@ -491,6 +499,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		414AA4E72BE5DB5B001FC762 /* CollegeDetailsiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CollegeDetailsiOS;
+		};
 		416C574C2BE5CD930033BE3E /* CollegeListiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CollegeListiOS;
