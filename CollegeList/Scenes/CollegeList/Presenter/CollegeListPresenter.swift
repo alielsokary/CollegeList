@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CollegeListCore
 
 protocol CollegeListPresenter {
     func viewDidLoad(view: CollegeListView)

@@ -7,14 +7,14 @@
 
 import Foundation
 
-class CollegeViewModel {
-    let name: String
-    let country: String
-    let state: String
-    let countryCode: String
-    let webPage: String
+public class CollegeViewModel {
+    public let name: String
+    public let country: String
+    public let state: String
+    public let countryCode: String
+    public let webPage: String
     
-    init(college: College) {
+    public init(college: College) {
         self.name = college.name ?? ""
         self.country = college.country ?? ""
         self.state = college.stateProvince ?? ""
@@ -22,7 +22,7 @@ class CollegeViewModel {
         self.webPage = college.webPages?.first ?? ""
     }
     
-    init(collegeObject: CollegeObject) {
+    public init(collegeObject: CollegeObject) {
         self.name = collegeObject.name
         self.country = collegeObject.country
         self.state = collegeObject.state

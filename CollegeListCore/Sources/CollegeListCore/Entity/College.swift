@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - College
-struct College: Codable {
-    let domains: [String]?
-    let stateProvince: String?
-    let name: String?
-    let webPages: [String]?
-    let country: String?
-    let alphaTwoCode: String?
+public struct College: Codable {
+    public let domains: [String]?
+    public let stateProvince: String?
+    public let name: String?
+    public let webPages: [String]?
+    public let country: String?
+    public let alphaTwoCode: String?
 
     enum CodingKeys: String, CodingKey {
         case domains

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CollegeListCore
 
 protocol CollegeListRouter: AnyObject {
     func start() -> UIViewController 

@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol CollegeListService {
+public protocol CollegeListService {
     func getCollegeList(completion: @escaping (Result<[College], NetworkError>) -> Void)
 }
 
-class CollegeListServiceImpl: CollegeListService {
+public class CollegeListServiceImpl: CollegeListService {
     private let service = NetworkService()
-
-    func getCollegeList(completion: @escaping (Result<[College], NetworkError>) -> Void) {
+    public init() { }
+    public func getCollegeList(completion: @escaping (Result<[College], NetworkError>) -> Void) {
         return service.fetchRequest(forRoute: .getColleges, completion: completion)
     }
 

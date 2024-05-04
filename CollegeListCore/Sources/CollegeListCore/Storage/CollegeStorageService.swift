@@ -7,19 +7,19 @@
 
 import RealmSwift
 
-protocol CollegeStorageService {
+public protocol CollegeStorageService {
     func save(college: CollegeViewModel)
     func fetchColleges() -> [CollegeViewModel]
 }
 
-class CollegeStorageServiceImpl: CollegeStorageService {
+public class CollegeStorageServiceImpl: CollegeStorageService {
     private let realm: Realm
 
-    init(realm: Realm = try! Realm()) {
+    public init(realm: Realm = try! Realm()) {
         self.realm = realm
     }
 
-    func save(college: CollegeViewModel) {
+    public func save(college: CollegeViewModel) {
         let collegeObject = CollegeObject()
         collegeObject.name = college.name
         collegeObject.country = college.country
@@ -32,7 +32,7 @@ class CollegeStorageServiceImpl: CollegeStorageService {
         }
     }
 
-    func fetchColleges() -> [CollegeViewModel] {
+    public func fetchColleges() -> [CollegeViewModel] {
         let collegeObjects = realm.objects(CollegeObject.self)
         return collegeObjects.map { CollegeViewModel(collegeObject: $0) }
     }

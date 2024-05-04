@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CollegeListCore
 
 final class CollegeListBuilder {
     

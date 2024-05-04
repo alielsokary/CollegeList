@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CollegeListCore
 
 protocol CollegeDetailsView: AnyObject {
     func displayData(viewModel: CollegeViewModel)

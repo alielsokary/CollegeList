@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CollegeListCore
 
 protocol CollegeDetailsInteractorLogic {
     var viewModel: CollegeViewModel { get set }

@@ -5,22 +5,22 @@
 //  Created by Ali Elsokary on 03/05/2024.
 //
 
-protocol CollegeRepository {
+public protocol CollegeRepository {
     typealias Completion = (Result<[CollegeViewModel], Error>) -> Void
 
     func fetchColleges(completion: @escaping Completion)
 }
 
-class CollegeRepositoryImpl: CollegeRepository {
+public class CollegeRepositoryImpl: CollegeRepository {
     private let apiService: CollegeListService
     private let storageService: CollegeStorageService
 
-    init(apiService: CollegeListService, storageService: CollegeStorageService) {
+    public init(apiService: CollegeListService, storageService: CollegeStorageService) {
         self.apiService = apiService
         self.storageService = storageService
     }
 
-    func fetchColleges(completion: @escaping Completion) {
+    public func fetchColleges(completion: @escaping Completion) {
         apiService.getCollegeList { [weak self] result in
             guard let self = self else { return }
             switch result {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CollegeListCore
 
 class CollegeTableViewCell: UITableViewCell {
 
