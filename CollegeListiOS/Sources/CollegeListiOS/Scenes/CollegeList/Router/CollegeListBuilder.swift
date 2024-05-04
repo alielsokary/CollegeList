@@ -18,9 +18,13 @@ final class CollegeListBuilder {
         let interactor = CollegeListInteractor(repository: repo)
         let presenter = CollegeListPresenterImpl(router: router, interactor: interactor)
         
-        let storyboard = UIStoryboard(name: "CollegeList", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "CollegeListViewController") { coder in
-            return CollegeListViewController(coder: coder, presenter: presenter)
+        let storyboard = UIStoryboard(name: "CollegeList", bundle: Bundle.module)
+        var viewController = UIViewController()
+        if #available(iOS 13.0, *) {
+            viewController = storyboard.instantiateViewController(identifier: "CollegeListViewController") { coder in
+                return CollegeListViewController(coder: coder, presenter: presenter)
+            }
+        } else {
         }
         
         router.viewController = viewController
