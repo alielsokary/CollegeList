@@ -49,7 +49,7 @@ class CollegeListPresenterImpl: CollegeListPresenter {
     }
     
     func observeDataRefreshNotification() {
-        NotificationCenter.default.addObserver(forName: .collegeDataRefreshed, object: nil, queue: nil) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: Notification.Name("collegeDataRefreshed"), object: nil, queue: nil) { [weak self] _ in
             guard let self = self else { return }
             self.interactor.getCollegeList()
         }

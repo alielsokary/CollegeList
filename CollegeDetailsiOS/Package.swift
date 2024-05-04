@@ -4,27 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "CollegeListiOS",
-    defaultLocalization: "en",
+    name: "CollegeDetailsiOS",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "CollegeListiOS",
-            targets: ["CollegeListiOS"]),
+            name: "CollegeDetailsiOS",
+            targets: ["CollegeDetailsiOS"]),
     ],
     dependencies: [
-        .package(path: "../CollegeListCore"),
-        .package(path: "../CollegeDetailsiOS")
+        .package(path: "../CollegeListCore")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "CollegeListiOS",
-            dependencies: [.product(name: "CollegeListCore", package: "CollegeListCore"),
-                           .product(name: "CollegeDetailsiOS", package: "CollegeDetailsiOS")]),
+            name: "CollegeDetailsiOS",
+        dependencies: [.product(name: "CollegeListCore", package: "CollegeListCore")]),
         .testTarget(
-            name: "CollegeListiOSTests",
-            dependencies: ["CollegeListiOS"]),
+            name: "CollegeDetailsiOSTests",
+            dependencies: ["CollegeDetailsiOS"]),
     ]
 )

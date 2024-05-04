@@ -37,8 +37,8 @@ private extension CollegeListViewController {
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib.init(nibName: CollegeTableViewCell.identifier, bundle: Bundle.module),
-                           forCellReuseIdentifier: CollegeTableViewCell.identifier)
+        tableView.register(UINib.init(nibName: "CollegeTableViewCell", bundle: Bundle.module),
+                           forCellReuseIdentifier: "CollegeTableViewCell")
     }
 }
 

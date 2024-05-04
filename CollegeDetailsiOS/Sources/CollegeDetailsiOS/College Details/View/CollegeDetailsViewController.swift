@@ -8,11 +8,11 @@
 import UIKit
 import CollegeListCore
 
-protocol CollegeDetailsView: AnyObject {
+public protocol CollegeDetailsView: AnyObject {
     func displayData(viewModel: CollegeViewModel)
 }
 
-final class CollegeDetailsViewController: UIViewController {
+public final class CollegeDetailsViewController: UIViewController {
     // MARK: Properties
     @IBOutlet private(set) weak var collegeNameLabel: UILabel!
     @IBOutlet private(set) weak var collegeStateLabel: UILabel!
@@ -22,7 +22,7 @@ final class CollegeDetailsViewController: UIViewController {
     
     private let presenter: CollegeDetailsPresenter
     
-    required init?(coder: NSCoder, presenter: CollegeDetailsPresenter) {
+    public required init?(coder: NSCoder, presenter: CollegeDetailsPresenter) {
         self.presenter = presenter
         super.init(coder: coder)
     }
@@ -35,7 +35,7 @@ final class CollegeDetailsViewController: UIViewController {
 
 // MARK: - Life Cycle
 extension CollegeDetailsViewController {
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad(view: self)
     }
@@ -43,7 +43,7 @@ extension CollegeDetailsViewController {
 
 // MARK: - Configurations
 extension CollegeDetailsViewController: CollegeDetailsView {
-    func displayData(viewModel: CollegeViewModel) {
+    public func displayData(viewModel: CollegeViewModel) {
         collegeNameLabel.text = viewModel.name
         collegeStateLabel.text = viewModel.state
         collegeCountryLabel.text = viewModel.country
