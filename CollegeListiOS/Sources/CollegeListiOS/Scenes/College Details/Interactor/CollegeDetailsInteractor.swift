@@ -21,7 +21,3 @@ class CollegeDetailsInteractor: CollegeDetailsInteractorLogic {
     }
 }
 
-
-extension Notification.Name {
-    static let collegeDataRefreshed = Notification.Name("collegeDataRefreshed")
-}

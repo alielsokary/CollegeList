@@ -27,6 +27,6 @@ class CollegeDetailsPresenterImpl: CollegeDetailsPresenter {
     }
     
     func startDataRefresh() {
-        NotificationCenter.default.post(name: .collegeDataRefreshed, object: nil)
+        NotificationCenter.default.post(name: Notification.Name("collegeDataRefreshed"), object: nil)
     }
 }
