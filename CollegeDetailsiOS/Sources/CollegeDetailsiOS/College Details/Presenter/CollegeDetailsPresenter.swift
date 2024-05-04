@@ -7,26 +7,26 @@
 
 import Foundation
 
-protocol CollegeDetailsPresenter {
+public protocol CollegeDetailsPresenter {
     func viewDidLoad(view: CollegeDetailsView)
     func startDataRefresh()
 }
 
-class CollegeDetailsPresenterImpl: CollegeDetailsPresenter {
+public class CollegeDetailsPresenterImpl: CollegeDetailsPresenter {
     private weak var view: CollegeDetailsView?
 
     private let interactor: CollegeDetailsInteractorLogic
     
-    init(interactor: CollegeDetailsInteractorLogic) {
+    public init(interactor: CollegeDetailsInteractorLogic) {
         self.interactor = interactor
     }
     
-    func viewDidLoad(view: CollegeDetailsView) {
+    public func viewDidLoad(view: CollegeDetailsView) {
         self.view = view
         view.displayData(viewModel: interactor.viewModel)
     }
     
-    func startDataRefresh() {
-        NotificationCenter.default.post(name: .collegeDataRefreshed, object: nil)
+    public func startDataRefresh() {
+        NotificationCenter.default.post(name: Notification.Name("collegeDataRefreshed"), object: nil)
     }
 }

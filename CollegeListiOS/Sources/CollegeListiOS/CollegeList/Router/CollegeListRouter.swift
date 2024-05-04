@@ -7,6 +7,7 @@
 
 import UIKit
 import CollegeListCore
+import CollegeDetailsiOS
 
 public protocol CollegeListRouter: AnyObject {
     func start() -> UIViewController
@@ -21,24 +22,16 @@ public final class CollegeListRouterImpl: CollegeListRouter {
         self.viewController = viewController
     }
     
+    let detailsRouter = CollegeDetailsRouterImpl()
+    
     public func start() -> UIViewController {
         let viewController = CollegeListBuilder.build()
         return viewController
     }
 
     public func navigateToCollegeDetails(with viewModel: CollegeViewModel) {
-        let storyboard = UIStoryboard(name: "CollegeDetails", bundle: Bundle.module)
-        let interactor = CollegeDetailsInteractor(viewModel: viewModel)
-        let presenter = CollegeDetailsPresenterImpl(interactor: interactor)
-        var vc = UIViewController()
-        
-        if #available(iOS 13.0, *) {
-            vc = storyboard.instantiateViewController(identifier: "CollegeDetailsViewController") { coder in
-                return CollegeDetailsViewController(coder: coder, presenter: presenter)
-            }
-        } else {
+        if let vc = viewController {
+            detailsRouter.start(with: viewModel, for: vc)
         }
-        vc.modalPresentationStyle = .fullScreen
-        viewController?.present(vc, animated: true)
     }
 }
